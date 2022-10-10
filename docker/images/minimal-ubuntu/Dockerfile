@@ -30,7 +30,11 @@ RUN apt update -y && \
 RUN apt install -y python-dev && \
     curl "https://bootstrap.pypa.io/get-pip.py" -o /tmp/get-pip.py && \
     python /tmp/get-pip.py
-
+    
+# install libssl
+RUN apt install openssl libssl-dev
+#clean cache
+RUN apt clean cache
 # java
 RUN apt install -y openjdk-8-jdk
 # maven
